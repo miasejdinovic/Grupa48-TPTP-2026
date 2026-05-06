@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="bs">
-
+<!--Podesavanje stranice i povezivanje CSS/JS fajlova-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Izbor</title>
   <link rel="stylesheet" href="style.css">
+  <script src="tptpskripte.js" defer></script>
 </head>
 
 <body>
 
 <header>
-  <h1>Tvoj lokalni gastro vodič Tuzla</h1>
+  <h1>Bite</h1>
 </header>
-
-<nav>
-  <a href="index.html">Početna</a>
-  <a href="restorani.html">Restorani</a>
-  <a href="kafici.html">Kafići</a>
-  <a href="poslasticarne.html">Poslastičarne</a>
+<!--Glavna navigacija kroz kategorije-->
+<nav id="glavna-navigacija">
+  <a href="#" data-kategorija="sve">Početna</a>
+  <a href="sadrzaj.html">Sadržaj</a>
+  <a href="#" data-kategorija="restorani">Restorani</a>
+  <a href="#" data-kategorija="kafici">Kafići</a>
+  <a href="#" data-kategorija="poslasticarne">Poslastičarne</a>
+  <a href="#lokacija-mape">Lokacija</a>
+  <a href="kontakt.html">Kontakt</a>
 </nav>
-
+</body>
+<!--Glavni sadrzaj stranice-->
 <main>
-
-  <h2>Izaberi kategoriju</h2>
+  <h2 id="naslov-kategorije">Izaberi kategoriju</h2>
 
   <div class="grid">
-    <a href="restorani.html" class="card">Restorani</a>
-    <a href="kafici.html" class="card">Kafići</a>
-    <a href="poslasticarne.html" class="card">Poslastičarne</a>
+    <a href="restorani.html" class="card restorani">Restorani</a>
+    <a href="kafici.html" class="card kafici">Kafići</a>
+    <a href="poslasticarne.html" class="card poslasticarne">Poslastičarne</a>
   </div>
-
 </main>
-
-<aside>
+<!--Sekcija sa Google mapom lokacije-->
+<aside id="lokacija-mape">
   <h3>Lokacija Tuzla</h3>
   <iframe src="https://www.google.com/maps?q=Tuzla&output=embed"></iframe>
 </aside>
-
+<!--Footer sa informacijama o autorima projekta-->
 <footer>
   <p>© 2026 - Minela Avdić, Mia Sejdinović, Mirnesa Kadrić</p>
 </footer>
