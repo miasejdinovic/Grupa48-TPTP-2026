@@ -1,0 +1,57 @@
+:root {
+    --primarna: #4a4a4a;
+    --bijela: #ffffff;
+    --krem-baza: #faf9f6;
+    --prelaz: all 0.3s ease-out;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--krem-baza);
+    margin: 0;
+    color: var(--primarna);
+}
+
+/* Navigacija - Korišten Flexbox prema tehničkom zahtjevu 4.2 */
+nav {
+    display: flex; 
+    justify-content: center;
+    background-color: var(--primarna);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+/* Glavni layout - Korišten CSS Grid prema zahtjevu 4.2 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tri kolone na desktopu */
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bijela);
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Responzivnost - Zahtjev br. 5 (Media Queries) */
+@media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr; } /* Tablet */
+}
+
+@media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; } /* Mobitel */
+}
