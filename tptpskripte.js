@@ -1,46 +1,30 @@
-// Čekamo da se cijeli HTML učita (zbog defer atributa)
-// defer atribut osigurava da browser preuzima JS skripte bez zaustavljanja HTML dokumenta
-// Za pomoć pri izradu ovog koda koristila sam Gemini
-
+//Pri izradi koda za filtriranje kartica korišten je Gemini AI
+//Ovaj dio koda predstavlja poziv funkcije (dodjeljivanje logike na klik)
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. DIO: FILTRIRANJE KARTICA
     
-    // Pronalazimo sve linkove unutar navigacije koji imaju data-kategorija atribut
     const filterLinkovi = document.querySelectorAll("#glavna-navigacija a[data-kategorija]");
 
     filterLinkovi.forEach(link => {
         link.addEventListener("click", function(event) {
             event.preventDefault(); 
-            // Ovaj segment koda osigurava da stranica ne uradi reload ili skoči na vrh
-           
             const kat = this.getAttribute("data-kategorija");
-            // Uzimanje vrijednost iz data-kategorija (npr. 'restorani')
-            
             izvrsiFiltriranje(kat);
-            // Poziv funkcije za filtriranje
         });
     });
-
-    // 2. DIO: SMOOTH SCROLL
-    
-    // Pronalazimo sve linkove koji vode na ID unutar stranice (počinju sa #)
+//Ovdje završava poziv funkcije za filtriranje kartica
+  
     const smoothLinkovi = document.querySelectorAll('a[href^="#"]');
 
     smoothLinkovi.forEach(link => {
         link.addEventListener("click", function(e) {
-            // Ako link ima i data-kategorija, filtriranje već rješava preventDefault,
-            // ali za čiste bookmark linkove (poput #lokacija-mape) moramo ga ovdje zaustaviti.
             const ciljId = this.getAttribute("href");
 
-            // Preskačemo linkove koji su samo "#" (često se koriste za vrh stranice ili prazne linkove)
             if (ciljId !== "#" && ciljId.startsWith("#")) {
                 e.preventDefault();
-
                 const ciljniElement = document.querySelector(ciljId);
 
                 if (ciljniElement) {
-                    // Pokrećemo glatko skrolovanje do ciljanog elementa
                     ciljniElement.scrollIntoView({
                         behavior: "smooth",
                         block: "start"
@@ -49,14 +33,50 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    
+    const btn = document.getElementById('dark-mode-toggle');
+    const icon = document.getElementById('theme-icon');
+    const currentTheme = localStorage.getItem('theme');
+
+    
+    function updateIcon(isDark) {
+        if (icon) {
+            if (isDark) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+    }
+
+    
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateIcon(true);
+    }
+
+   
+    if (btn) {
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            updateIcon(isDark);
+        });
+    }
+    
+
 });
 
-// Funkcija za filtriranje
+//Pri izradi funckije za filtriranje kartica korišten je Gemini AI
+//Ovaj dio koda predstavlja implementaciju funkcije za filtriranje kartica
 function izvrsiFiltriranje(kategorija) {
     const kartice = document.querySelectorAll('.card');
     const naslov = document.getElementById('naslov-kategorije');
 
-    // Ažuriranje naslova
     if (naslov) {
         if (kategorija === 'sve') {
             naslov.textContent = "Izaberi kategoriju";
@@ -65,7 +85,6 @@ function izvrsiFiltriranje(kategorija) {
         }
     }
 
-    // Logika sakrivanja/prikazivanja
     kartice.forEach(kartica => {
         if (kategorija === 'sve') {
             kartica.style.display = "block";
@@ -73,7 +92,9 @@ function izvrsiFiltriranje(kategorija) {
             if (kartica.classList.contains(kategorija)) {
                 kartica.style.display = "block";
             } else {
-                kartica.style.display = "none";
+                if (!kartica.classList.contains('theme-btn')) { 
+                    kartica.style.display = "none";
+                }
             }
         }
     });
