@@ -112,9 +112,9 @@ h1 {
 }
 
 /* SPECIFIČNI STILOVI PO KATEGORIJAMA (BORDER-BOTTOM TRIK) */
-.card.poslasticarna { border-bottom: 10px solid var(--poslastice-roze); }
-.card.kafic { border-bottom: 10px solid var(--kafa-smedja); }
-.card.restoran { border-bottom: 10px solid var(--restoran-zelena); }
+.card.poslasticarne { border-bottom: 10px solid var(--poslastice-roze); }
+.card.kafici { border-bottom: 10px solid var(--kafa-smedja); }
+.card.restorani { border-bottom: 10px solid var(--restoran-zelena); }
 
 .card h3 {
     font-size: 1.6rem;
