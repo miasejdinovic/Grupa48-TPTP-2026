@@ -7,9 +7,13 @@ Grupa se sastoji od 3 člana:
    
 OPIS PROJEKTA:
 Tema ovog projekta, kao što je već navedeno, je lokalni gastro vodič. Ovakva web stranica bi bila korištena u svrhu turizma na kojoj bi turisti, ali i lokalci, mogli da pronađu sve lokale (restorane, kafiće, slatičarne) vrijedne posjete u Tuzli.
-Web stranica će se sastojati od sljedećih elemenata (alata):
+Web stranica će se sastojati od sljedećih tehnologija:
 1. HTML5
 2. CSS (bez framework-a)
 3. JavaScript (bez biblioteka)
+
+AI alati korišteni pri izradi ovog projekta:
+1. Gemini AI
+2. ChatGPT
 
 U ovom repozitoriju možete pogledati commite članova grupa, te na taj način vidjeti razvojni proces same web stranice.
