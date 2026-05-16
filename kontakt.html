@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="./css/tptpstil.css">
+  <script src="./js/tptpskripte.js" defer></script>
+</head>
+
+<body>
+<header>
+	 <button id="dark-mode-toggle" class="theme-btn"></button>
+</header>
+<h1>Kontakt</h1>
+
+<form id="kontaktForma" novalidate> <label for="ime">Ime:</label>
+  <input type="text" id="ime">
+  <span class="error-msg" id="imeGreska"></span>
+
+  <label for="prezime">Prezime:</label>
+  <input type="text" id="prezime">
+  <span class="error-msg" id="prezimeGreska"></span>
+
+  <label for="email">Email:</label>
+  <input type="text" id="email">
+  <span class="error-msg" id="emailGreska"></span>
+
+  <label for="telefon">Telefon:</label>
+  <input type="text" id="telefon">
+  <span class="error-msg" id="telefonGreska"></span>
+
+  <label for="tema">Tema:</label>
+  <select id="tema">
+  <option value="">-- Izaberi temu --</option> <option value="Pitanje">Pitanje</option>
+  <option value="Prijedlog">Prijedlog</option>
+  <option value="Žalba">Žalba</option>
+  </select>
+  <span class="error-msg" id="temaGreska"></span>
+
+  <label for="poruka">Poruka:</label>
+  <textarea id="poruka"></textarea>
+  <span class="error-msg" id="porukaGreskaPolje"></span>
+
+  <div class="buttons">
+    <button type="submit">Pošalji</button>
+    <button type="reset">Reset</button>
+  </div>
+
+</form>
+<p id="glavnaPoruka"></p>
+<h2>Kontakt informacije</h2>
+
+<ul>
+  <li>Email: gastro@tuzla.ba</li>
+  <li>Telefon: +387 61 123 456</li>
+  <li>Adresa: Tuzla, BiH</li>
+</ul>
+<p id="porukaGreske"></p>
+
+<script>
+document.getElementById("kontaktForma").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let ime = document.getElementById("ime").value.trim();
+  let prezime = document.getElementById("prezime").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let telefon = document.getElementById("telefon").value.trim();
+  let poruka = document.getElementById("poruka").value.trim();
+  let ispis = document.getElementById("porukaGreske");
+
+  let emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+  let telefonRegex = /^[0-9+-\s]+$/;
+
+  if (ime === ""  prezime === "" 
+Spoiler
+ email === ""  telefon === "" 
+Spoiler
+ poruka === "") {
+    ispis.textContent = "Sva polja moraju biti popunjena.";
+    ispis.style.color = "red";
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    ispis.textContent = "Email nije ispravan.";
+    ispis.style.color = "red";
+    return;
+  }
+
+  if (!telefonRegex.test(telefon)) {
+    ispis.textContent = "Telefon smije sadržavati samo brojeve, razmake, + i -.";
+    ispis.style.color = "red";
+    return;
+  }
+
+  ispis.textContent = "Hvala " + ime + ", vaša poruka je uspješno poslana!";
+  ispis.style.color = "green";
+});
+</script>
+<a href="index.html" class="btn">⬅ Nazad</a>
+</body>
+</html>

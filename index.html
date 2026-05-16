@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="bs">
-<!--Podesavanje stranice i povezivanje CSS/JS fajlova-->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Izbor</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="tptpskripte.js" defer></script>
+  
+  <link rel="stylesheet" href="css/tptpstil.css">
+  <script src="js/tptpskripte.js" defer></script>
 </head>
 
 <body>
 
 <header>
-  <h1>Bite</h1>
+  <div class="header-centar">
+        <h1>Bite</h1>
+        <a href="index.html">
+            <img src="./images/logohtml.png" alt="Logo" class="logo-header">
+        </a>
+    </div>
+  <button id="dark-mode-toggle" class="theme-btn"></button>
 </header>
-<!--Glavna navigacija kroz kategorije-->
+
 <nav id="glavna-navigacija">
   <a href="#" data-kategorija="sve">Početna</a>
   <a href="sadrzaj.html">Sadržaj</a>
@@ -24,8 +31,7 @@
   <a href="#lokacija-mape">Lokacija</a>
   <a href="kontakt.html">Kontakt</a>
 </nav>
-</body>
-<!--Glavni sadrzaj stranice-->
+
 <main>
   <h2 id="naslov-kategorije">Izaberi kategoriju</h2>
 
@@ -34,13 +40,29 @@
     <a href="kafici.html" class="card kafici">Kafići</a>
     <a href="poslasticarne.html" class="card poslasticarne">Poslastičarne</a>
   </div>
+  
 </main>
-<!--Sekcija sa Google mapom lokacije-->
+
+<section id="gastro-picker" class="picker-sekcija">
+    <div class="picker-kontejner">
+        <h2>Ne znate gdje jesti?</h2>
+        <p>Pustite nas da odlučimo umjesto vas!</p>
+        
+        <div id="prikaz-preporuke" class="preporuka-kutija">
+            <div class="ikona-pocetna">🍴</div>
+            <h3 id="naziv-preporuke">Kliknite na dugme...</h3>
+            <p id="opis-preporuke">...i otkrijte gastro dragulj Tuzle.</p>
+        </div>
+        
+        <button id="pickerBtn" class="btn-picker">💡 Gastro Preporuka</button>
+    </div>
+</section>
+
 <aside id="lokacija-mape">
   <h3>Lokacija Tuzla</h3>
   <iframe src="https://www.google.com/maps?q=Tuzla&output=embed"></iframe>
 </aside>
-<!--Footer sa informacijama o autorima projekta-->
+
 <footer>
   <p>© 2026 - Minela Avdić, Mia Sejdinović, Mirnesa Kadrić</p>
 </footer>

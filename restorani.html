@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restorani</title>
-  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="css/tptpstil.css">
+  <script src="js/tptpskripte.js" defer></script>
 </head>
 
 <body>
 <header>
-  <h1>Gastro vodič Tuzla</h1>
+	 <button id="dark-mode-toggle" class="theme-btn"></button>
 </header>
 
-<nav>
+<nav id="glavna-navigacija">
   <a href="index.html">Početna</a>
   <a href="restorani.html">Restorani</a>
   <a href="kafici.html">Kafići</a>
@@ -20,17 +21,17 @@
 </nav>
 
 <main>
-  <h2>Restorani</h2>
+  <h2 id="naslov-kategorije">Restorani</h2>
 
   <div class="grid">
-    <a href="limenka.html" class="card">Limenka</a>
-    <a href="kvin.html" class="card">Kvin</a>
-    <a href="mamamia.html" class="card">MamaMia</a>
+    <a href="limenka.html" class="card restorani">Limenka</a>
+    <a href="kvin.html" class="card restorani">Kvin</a>
+    <a href="mamamia.html" class="card restorani">MamaMia</a>
   </div>
 
   <a href="index.html" class="btn">⬅ Nazad</a>
 </main>
-<!--Footer sa informacijama o autorima projekta-->
+
 <footer>
   <p>© 2026 - Minela Avdić, Mia Sejdinović, Mirnesa Kadrić</p>
 </footer>

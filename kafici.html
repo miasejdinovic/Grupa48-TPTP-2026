@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kafići</title>
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/tptpstil.css">
+  <script src="js/tptpskripte.js" defer></script>
 </head>
 
 <body>
 <header>
-  <h1>Gastro vodič Tuzla</h1>
+   <button id="dark-mode-toggle" class="theme-btn"></button>
+</button>
 </header>
-<!--Glavni sadrzaj stranice-->
-<nav>
+
+<nav id="glavna-navigacija">
   <a href="index.html">Početna</a>
   <a href="restorani.html">Restorani</a>
   <a href="kafici.html">Kafići</a>
@@ -20,17 +22,17 @@
 </nav>
 
 <main>
-  <h2>Kafići</h2>
+  <h2 id="naslov-kategorije">Kafići</h2>
 
   <div class="grid">
-    <a href="meeting.html" class="card">Meeting Tuzla</a>
-    <a href="sloboda.html" class="card">Caffe Sloboda</a>
-    <a href="zona.html" class="card">Coffee Zona</a>
+    <a href="meeting.html" class="card kafici">Meeting Tuzla</a>
+    <a href="sloboda.html" class="card kafici">Caffe Sloboda</a>
+    <a href="zona.html" class="card kafici">Coffee Zona</a>
   </div>
 
   <a href="index.html" class="btn">⬅ Nazad</a>
 </main>
-<!--Footer sa informacijama o autorima projekta-->
+
 <footer>
 <p>© 2026 - Minela Avdić, Mia Sejdinović, Mirnesa Kadrić</p>
 </footer>
